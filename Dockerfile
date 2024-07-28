@@ -1,7 +1,7 @@
-FROM alpine:3.20.2
+FROM debian:bookworm
 
-RUN apk update && apk upgrade
-RUN apk add bash
+RUN apt update && apt upgrade -y
+RUN apt install iputils-ping wget -y
 
 COPY ./jdks /tmp/java
 
