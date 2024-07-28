@@ -14,11 +14,11 @@ source functions.sh
 clear
 
 #config
-downloadServer="192.168.0.120"          #File Server
-downloadPort="8000"
+downloadServer="192.168.0.120"      #File Server
+downloadPort="8000"                 #File Server Port
 flavour="Vanilla"                   #Vanilla, Fabric, Spigot
-version="1.21"                    # Any Valid
-java_version="Auto"                 #Java-X || Auto
+version="1.21"                      # Any Valid
+java_version="Auto"                 #Java-X || Autop
 
 mkdir -p /mnt/server
 cd /mnt/server
