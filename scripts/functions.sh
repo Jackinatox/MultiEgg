@@ -9,6 +9,8 @@ java17=("1.19.2" "19.1")
 
 contains() {
     local e compareTo="$1"
+
+    echo "$compareTo" > compare.txt
     shift
     for e; do [[ "$e" == "$compareTo" ]] && return 0; done
     return 1
@@ -37,7 +39,7 @@ function getJavaPath {
     if [ $java_version == "Auto" ]; then
         #for each flavour
 
-        if [ $flavour == "Vanila" ]; then
+        if [ $flavour == "Vanilla" ]; then
             Result=$(getFabric $version)
         fi
 

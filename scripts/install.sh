@@ -5,12 +5,10 @@
 #
 # Server Files: /mnt/server
 
-
 ##Get Values From Pterodactyl
 #flavour={{MC_FLAVOUR}}
 
-
-##functions
+#set -x                             #Debug
 source functions.sh
 
 clear
@@ -28,13 +26,12 @@ ping -c1 $downloadServer > /dev/null
 
 if [ $? -eq 0 ]; then               # Check the exit status of the ping command
     echo "accepting eula"
-    #echo "eula=true" > eula.txt
-
-    echo lsing $(ls)
+    echo "eula=true" > eula.txt
 
     java_path=$(getJavaPath $flavour $version $java_version)       #calling functions and getting return value
 
     echo Java_Path: $java_path
+   
 
     echo -e "Install Complete"    
 else
