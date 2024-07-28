@@ -1,0 +1,10 @@
+services:
+  mc:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["/app/install.sh"]
+    develop:
+      watch:
+        - action: rebuild
+          path: ./scripts
