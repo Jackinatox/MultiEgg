@@ -4,13 +4,11 @@
 ####                                                                                                 ####
 #########################################################################################################
 
-java21=("1.20.4" "1.20.3" "1.20.2" "1.20.1" "1.20")
+java21=("1.21" "1.20.4" "1.20.3" "1.20.2" "1.20.1" "1.20")
 java17=("1.19.2" "19.1")
 
 contains() {
     local e compareTo="$1"
-
-    echo "$compareTo" > compare.txt
     shift
     for e; do [[ "$e" == "$compareTo" ]] && return 0; done
     return 1
@@ -48,4 +46,15 @@ function getJavaPath {
     fi
 
     echo $Result
+}
+
+function downloadJar {
+    wget $downloadServer:$downloadPort/$flavour/$version/server.jar
+}
+
+
+function testJava {
+    $java_path -Xmx2G -jar server.jar
+    echo ls in java test:
+    ls $java_path
 }
