@@ -4,6 +4,30 @@
 ####                                                                                                 ####
 #########################################################################################################
 
+java21=("1.20.4" "1.20.3" "1.20.2" "1.20.1" "1.20")
+java17=("1.19.2" "19.1")
+
+contains() {
+    local e compareTo="$1"
+    shift
+    for e; do [[ "$e" == "$compareTo" ]] && return 0; done
+    return 1
+}
+
+function getFabric {
+    local version=$1
+    local Result=""
+
+    if contains "$version" "${java21[@]}"; then
+        Result="Java-21"
+    elif contains "$version" "${java17[@]}"; then
+        Result="Java-17"
+    fi
+
+    echo $Result
+}
+
+
 function getJavaPath {
     local flavour=$1
     local version=$2
@@ -13,10 +37,10 @@ function getJavaPath {
     if [ $java_version == "Auto" ]; then
         #for each flavour
 
-        #if [ $flavour == "Vanila" ]; then
+        if [ $flavour == "Vanila" ]; then
+            Result=$(getFabric $version)
+        fi
 
-
-        Result="Java-21"
     else
         Result=$java_version 
     fi

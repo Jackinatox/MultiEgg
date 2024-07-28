@@ -1,7 +1,7 @@
 FROM alpine:3.20.2
 
-RUN apk update
-RUN apk upgrade
+RUN apk update && apk upgrade
+RUN apk add bash
 
 COPY ./jdks /tmp/java
 

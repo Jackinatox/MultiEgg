@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: ["/app/install.sh"]
+    command: /bin/bash /app/install.sh
     develop:
       watch:
         - action: rebuild
