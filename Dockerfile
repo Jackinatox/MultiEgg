@@ -3,6 +3,9 @@ FROM debian:bookworm
 RUN apt update && apt upgrade -y
 RUN apt install iputils-ping wget -y
 
+#RUN apk update && apk upgrade
+
+
 COPY ./jdks /tmp/java
 
 WORKDIR /app

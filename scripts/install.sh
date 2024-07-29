@@ -9,16 +9,19 @@
 #flavour={{MC_FLAVOUR}}
 
 #set -x                             #Debug
-source functions.sh
+
+source "functions.sh"
 
 clear
-
 #config
 downloadServer="192.168.0.120"      #File Server
 downloadPort="8000"                 #File Server Port
-flavour="Vanilla"                   #Vanilla, Fabric, Spigot
-version="1.21"                      # Any Valid
+flavour="Fabric"                    #Vanilla, Fabric, Spigot
+version="1.14"                      # Any Valid
 java_version="Auto"                 #Java-X || Autop
+
+echo firrrrrrrrrrrrrrst ls
+ls
 
 mkdir -p /mnt/server
 cd /mnt/server
@@ -30,7 +33,7 @@ if [ $? -eq 0 ]; then               # Check the exit status of the ping command
     echo "eula=true" > eula.txt
 
 
-    java_path=$(getJavaPath $flavour $version $java_version)       #calling functions and getting return value
+    java_path=$(getJavaPath)       #calling functions and getting return value
 
     echo downloading server jar
     downloadJar

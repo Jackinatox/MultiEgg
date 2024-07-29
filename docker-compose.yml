@@ -3,6 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    image: multiegg_compose:compose
     command: /bin/bash /app/install.sh
     develop:
       watch:
